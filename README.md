@@ -44,6 +44,8 @@ And, when the menu button tapped, the delegate below will be called.
     NSString *buttonTitle = [menuView buttonTitleAtIndex:index];
     
     NSLog(@"%@(%ld) tapped",buttonTitle, (long)index);
+   
+    [menuView closeMenu];
 }
 ```
 

@@ -17,19 +17,18 @@ Pod::Spec.new do |s|
 
   s.name         = "MZRSlideInMenu"
   s.version      = "0.0.1"
-  s.summary      = "A short description of MZRSlideInMenu."
+  s.summary      = "A simple slide-in menu for iOS."
 
   s.description  = <<-DESC
-                   A longer description of MZRSlideInMenu in Markdown format.
+                   MZRSlideInMenu is a simple slide-in menu for iOS. When a button is tapped, the menu comes from left/right with animation. Easy installation and use. Add your app an additional flavour with MZRSlideInMenu.
 
-                   * Think: Why did you write this? What is the focus? What does it do?
-                   * CocoaPods will be using this to generate tags, and improve search results.
-                   * Try to keep it short, snappy and to the point.
-                   * Finally, don't worry about the indent, CocoaPods strips it!
+                   * Simple.
+                   * Easy.
+                   * Different flavour of menu.
                    DESC
 
-  s.homepage     = "http://EXAMPLE/MZRSlideInMenu"
-  # s.screenshots  = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage     = "https://github.com/morizotter/MZRSlideInMenu"
+  s.screenshots  = "https://raw.github.com/morizotter/MZRSlideInMenu/assets/sample.png"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -39,7 +38,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = 'MIT (example)'
+  s.license      = 'MIT'
   # s.license      = { :type => 'MIT', :file => 'FILE_LICENSE' }
 
 
@@ -50,10 +49,10 @@ Pod::Spec.new do |s|
   #  found CocoaPods accept just the names.
   #
 
-  s.author             = { "Naoki Morita" => "namorit@gmail.com" }
+  # s.author             = { "Naoki Morita" => "namorit@gmail.com" }
   # s.authors          = { "Naoki Morita" => "namorit@gmail.com", "other author" => "email@address.com" }
-  # s.author           = 'Naoki Morita', 'other author'
-  # s.social_media_url = "http://twitter.com/Naoki Morita"
+  s.author           = 'Naoki Morita', 'other author'
+  s.social_media_url = "http://twitter.com/Naoki Morita"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -62,7 +61,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, '5.0'
+  s.platform     = :ios, '7.0'
 
   #  When using multiple platforms
   # s.ios.deployment_target = '5.0'
@@ -75,7 +74,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/MZRSlideInMenu.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/morizotter/MZRSlideInMenu", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -86,8 +85,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
-  s.exclude_files = 'Classes/Exclude'
+  s.source_files  = 'MZRSlideInMenu/**/*.{h,m}'
+  # s.exclude_files = 'Classes/Exclude'
 
   # s.public_header_files = 'Classes/**/*.h'
 
@@ -125,7 +124,7 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = true
 
   # s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
   # s.dependency 'JSONKit', '~> 1.4'

@@ -396,6 +396,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MZRSlideInMenuDemo/MZRSlideInMenuDemo-Prefix.pch";
 				INFOPLIST_FILE = "MZRSlideInMenuDemo/MZRSlideInMenuDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -409,6 +410,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MZRSlideInMenuDemo/MZRSlideInMenuDemo-Prefix.pch";
 				INFOPLIST_FILE = "MZRSlideInMenuDemo/MZRSlideInMenuDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -475,6 +477,7 @@
 				3F69C21F18930726003D2A4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F69C22018930726003D2A4E /* Build configuration list for PBXNativeTarget "MZRSlideInMenuDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +486,7 @@
 				3F69C22218930726003D2A4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
