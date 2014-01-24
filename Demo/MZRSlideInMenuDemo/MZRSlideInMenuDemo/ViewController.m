@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import "MZRSlideInMenu.h"
+#import <MZRSlideInMenu.h>
 
 static NSString *const kButtonTitle0 = @"Profile";
 static NSString *const kButtonTitle1 = @"Friends";
