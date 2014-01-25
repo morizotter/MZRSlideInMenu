@@ -11,7 +11,8 @@ Installation
 ### From CocoaPods
 
 ```
-pod 'MZRSlideInMenu'
+pod setup
+pod 'MZRSlideInMenu', '~> 0.0.1'
 ```
 
 ### Manually
