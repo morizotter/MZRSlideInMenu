@@ -2,11 +2,11 @@ PODS:
   - MZRSlideInMenu (0.0.1)
 
 DEPENDENCIES:
-  - MZRSlideInMenu (from `../..`)
+  - MZRSlideInMenu (from `..`)
 
 EXTERNAL SOURCES:
   MZRSlideInMenu:
-    :path: ../..
+    :path: ..
 
 SPEC CHECKSUMS:
   MZRSlideInMenu: e48560612f1a7726dd8c65b2a06ab61ca2dfca0c
