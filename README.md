@@ -63,6 +63,13 @@ Menu item has another method below. With this, you can change an individual butt
 
 About other customization, please see Demo or MZRSlideInMenu.h file.
 
+Requirement
+-----------
+
+- ARC
+- iOS7 and later
+- iPhone only 
+
 LISENSE
 -------
 
