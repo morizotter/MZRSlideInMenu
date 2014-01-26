@@ -10,14 +10,14 @@ Installation
 
 ### From CocoaPods
 
+
 ```
-pod setup
 pod 'MZRSlideInMenu', '~> 0.0.1'
 ```
 
 ### Manually
 
-Add MZRSlideInMenu.h/.m into your project. And then, `#import MZRSlideInMenu.h` where you want to use. That's all.
+Add MZRSlideInMenu.h/.m files into your project. And then, add `#import MZRSlideInMenu.h` where you want to use. That's all.
 
 Usage
 -----
