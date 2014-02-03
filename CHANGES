@@ -1,0 +1,5 @@
+= 0.0.2 (2014-02-04)
+
+* Add behavior that when the button tapped, the menu automatically close. (You don't need to do any modification from 0.0.1).
+* Directory name changes, for example, MZRSlideInMenu directory to Classes directory.
+
