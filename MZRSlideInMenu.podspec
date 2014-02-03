@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
   s.social_media_url = "http://twitter.com/Naoki Morita"
   s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/morizotter/MZRSlideInMenu.git", :tag => "0.0.2" }
-  s.source_files  = 'Classes/**/*.{h,m}'
+  s.source_files  = 'Classes/*.{h,m}'
   s.requires_arc = true
 end
