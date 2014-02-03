@@ -223,6 +223,8 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
 
 - (void)menuButtonTapped:(UIButton *)button
 {
+    [self closeMenu];
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(slideInMenu:didSelectAtIndex:)])
     {
         [self.delegate slideInMenu:self didSelectAtIndex:button.tag-kMenuItemTagBase];

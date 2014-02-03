@@ -80,8 +80,6 @@ static NSString *const kButtonTitle4 = @"Cancel";
     NSString *buttonTitle = [menuView buttonTitleAtIndex:index];
     
     NSLog(@"%@(%ld) tapped",buttonTitle, (long)index);
-    
-    [menuView closeMenu];
 }
 
 @end
