@@ -1,5 +1,5 @@
 PODS:
-  - MZRSlideInMenu (0.0.1)
+  - MZRSlideInMenu (0.0.2)
 
 DEPENDENCIES:
   - MZRSlideInMenu (from `..`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  MZRSlideInMenu: 44e5b7db5b14f1f34409a16dffd950797a7de411
+  MZRSlideInMenu: 6a94523a77eb8cafa867043305e26db4e39c4bdc
 
 COCOAPODS: 0.29.0

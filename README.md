@@ -12,7 +12,7 @@ Installation
 
 
 ```
-pod 'MZRSlideInMenu', '~> 0.0.1'
+pod 'MZRSlideInMenu', '~> 0.0.2'
 ```
 
 ### Manually
@@ -45,8 +45,6 @@ And, when the menu button tapped, the delegate below will be called.
     NSString *buttonTitle = [menuView buttonTitleAtIndex:index];
     
     NSLog(@"%@(%ld) tapped",buttonTitle, (long)index);
-   
-    [menuView closeMenu];
 }
 ```
 
