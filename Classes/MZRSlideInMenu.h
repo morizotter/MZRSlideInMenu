@@ -28,6 +28,16 @@
 /* item bar gap */
 @property (assign, nonatomic) CGFloat itemBarGap;
 
+/* allow to dismiss on background touched by user */
+@property (assign, nonatomic) BOOL dismissOnBackgroundTouch;
+
+/* add horizontal effect */
+@property (assign, nonatomic) CGFloat horizontalTransitionEffect;
+
+/* delay inserting of each button on view */
+@property (assign, nonatomic) CGFloat buttonInsertDelay;
+
+
 /* show menu from right */
 - (void)showMenuFromRight;
 
