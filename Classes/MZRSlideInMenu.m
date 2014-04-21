@@ -17,7 +17,7 @@ static const CGFloat kMenuItemLabelMarginLeft = 14.0;
 static const CGFloat kMenuItemLabelMarginRight = 14.0;
 static const CGFloat kDelayInterval = 0.02;
 static const CGFloat kAnimationDuration = 0.15;
-static const CGFloat kBackgroundAlpha = 0.25;
+static const CGFloat kBackgroundAlpha = 0.85;
 
 static const NSUInteger kMenuItemTagBase = 100;
 
@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
 @end
 
 @interface MZRSlideInMenu()
-@property (strong, nonatomic) UIView *view;
+@property (strong, nonatomic) UIScrollView *view;
 @property (strong, nonatomic) NSMutableArray *menuItems;
 @property (strong, nonatomic) NSMutableArray *menuButtons;
 @property (assign, nonatomic) MenuDirection menuDirection;
@@ -59,13 +59,18 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
         
         self.backgroundColor = [UIColor clearColor];
         
-        self.view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height)];
-        self.view.backgroundColor = [UIColor blackColor];
+        self.view = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height)];
+        self.view.backgroundColor = [UIColor darkTextColor];
         self.view.alpha = 0.0;
+        self.view.alwaysBounceVertical = YES;
         [self addSubview:self.view];
-        
+
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTouched)];
         [self addGestureRecognizer:tapGesture];
+        self.dismissOnBackgroundTouch = YES;
+
+        self.horizontalTransitionEffect = kAnimationDuration;
+        self.buttonInsertDelay = kDelayInterval;
     }
     return self;
 }
@@ -99,19 +104,8 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
 
 - (void)showMenu
 {
-    [UIView animateWithDuration:kAnimationDuration delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^
-     {
-         self.view.alpha = kBackgroundAlpha;
-     } completion:^(BOOL finished)
-     {
-         
-     }];
-    
-    if (self.menuItems.count==0)
-    {
-        return;
-    }
-    
+    self.view.alpha = kBackgroundAlpha;
+
     for (int i=0; i < self.menuItems.count; i++)
     {
         CGFloat itemBarHeight = kMenuItemBarHeight;
@@ -187,14 +181,14 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
         [menuButton setTag:kMenuItemTagBase + self.menuItems.count-i-1];
         [menuButton setBackgroundColor:buttonBackgroundColor];
         [menuButton addTarget:self action:@selector(menuButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:menuButton];
+        [self.view addSubview:menuButton];
         
         menuLabel.center = CGPointMake(CGRectGetWidth(menuButton.frame)/2, CGRectGetHeight(menuButton.frame)/2);
         [menuButton addSubview:menuLabel];
         
         [self.menuButtons addObject:menuButton];
         
-        CGFloat delay = kDelayInterval * i;
+        CGFloat delay = self.buttonInsertDelay * i;
         
         CGFloat newX = 0.0;
         if (self.menuDirection==MenuDirectionRight)
@@ -208,7 +202,7 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
         
         [[UIApplication sharedApplication].keyWindow addSubview:self];
         
-        [UIView animateWithDuration:kAnimationDuration delay:delay options:UIViewAnimationOptionCurveEaseOut animations:^
+        [UIView animateWithDuration:self.horizontalTransitionEffect delay:delay options:UIViewAnimationOptionCurveEaseOut animations:^
          {
              CGRect newFrame = CGRectMake(newX,
                                           CGRectGetMinY(menuButton.frame),
@@ -233,7 +227,7 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
 
 - (void)closeMenu
 {
-    [UIView animateWithDuration:kAnimationDuration delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^
+    [UIView animateWithDuration:self.horizontalTransitionEffect delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^
      {
          self.view.alpha = 0.0;
      } completion:^(BOOL finished)
@@ -250,7 +244,7 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
     {
         UIButton *menuButton = self.menuButtons[i];
         
-        CGFloat delay = kDelayInterval * i;
+        CGFloat delay = self.buttonInsertDelay * i;
         
         CGFloat newX = 0.0;
         if (self.menuDirection==MenuDirectionRight)
@@ -262,7 +256,7 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
             newX = - CGRectGetWidth(menuButton.frame);
         }
         
-        [UIView animateWithDuration:kAnimationDuration delay:delay options:UIViewAnimationOptionCurveEaseIn animations:^
+        [UIView animateWithDuration:self.horizontalTransitionEffect delay:delay options:UIViewAnimationOptionCurveEaseIn animations:^
          {
              CGRect newFrame = CGRectMake(newX,
                                           CGRectGetMinY(menuButton.frame),
@@ -281,7 +275,9 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
 
 - (void)viewTouched
 {
-    [self closeMenu];
+    if (self.dismissOnBackgroundTouch) {
+        [self closeMenu];
+    }
 }
 
 - (NSString *)buttonTitleAtIndex:(NSInteger)index
