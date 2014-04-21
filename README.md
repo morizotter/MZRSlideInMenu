@@ -12,7 +12,7 @@ Installation
 
 
 ```
-pod 'MZRSlideInMenu', '~> 0.0.2'
+pod 'MZRSlideInMenu', '~> 0.0.3'
 ```
 
 ### Manually
