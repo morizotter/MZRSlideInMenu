@@ -41,6 +41,9 @@
 @property (assign, nonatomic) CGFloat buttonInsertDelay;
 
 
+/* remove menu from view */
++ (void)removeMenu;
+
 /* show menu from right */
 - (void)showMenuFromRight;
 

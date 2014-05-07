@@ -47,6 +47,16 @@ typedef NS_ENUM (NSUInteger, MenuDirection)
 
 @implementation MZRSlideInMenu
 
++ (void)removeMenu {
+    for (UIView *view in [UIApplication sharedApplication].keyWindow.subviews) {
+        if ([view isMemberOfClass:[MZRSlideInMenu class]]) {
+            [view removeFromSuperview];
+            
+        }
+        
+    }
+}
+
 - (id)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self) {
