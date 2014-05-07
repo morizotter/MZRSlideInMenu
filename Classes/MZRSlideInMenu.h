@@ -31,6 +31,9 @@
 /* allow to dismiss on background touched by user */
 @property (assign, nonatomic) BOOL dismissOnBackgroundTouch;
 
+/* close menu on selection, Default YES */
+@property (assign, nonatomic) BOOL closeMenuOnSelection;
+
 /* add horizontal effect */
 @property (assign, nonatomic) CGFloat horizontalTransitionEffect;
 
@@ -52,6 +55,9 @@
 
 /* add menu item with title & textColor & backgroundColor */
 - (void)addMenuItemWithTitle:(NSString *)title textColor:(UIColor *)textColor backgroundColor:(UIColor *)backgroundColor;
+
+/* add menu background color */
+- (void)setMenuBackgroundColor:(UIColor *)color;
 
 /* get button name */
 - (NSString *)buttonTitleAtIndex:(NSInteger)index;
