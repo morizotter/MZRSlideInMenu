@@ -47,6 +47,16 @@ typedef NS_ENUM (NSUInteger, MenuDirection)
 
 @implementation MZRSlideInMenu
 
++ (void)removeMenu {
+    for (UIView *view in [UIApplication sharedApplication].keyWindow.subviews) {
+        if ([view isMemberOfClass:[MZRSlideInMenu class]]) {
+            [view removeFromSuperview];
+            
+        }
+        
+    }
+}
+
 - (id)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self) {
@@ -58,7 +68,7 @@ typedef NS_ENUM (NSUInteger, MenuDirection)
 		self.backgroundColor = [UIColor clearColor];
 
 		self.view = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height)];
-		self.view.backgroundColor = [UIColor darkTextColor];
+		[self setMenuBackgroundColor:[UIColor darkTextColor]];
 		self.view.alpha = 0.0;
 		self.view.alwaysBounceVertical = YES;
 		[self addSubview:self.view];
@@ -69,8 +79,15 @@ typedef NS_ENUM (NSUInteger, MenuDirection)
 
 		self.horizontalTransitionEffect = kAnimationDuration;
 		self.buttonInsertDelay = kDelayInterval;
+        self.closeMenuOnSelection = YES;
+        
 	}
 	return self;
+}
+
+- (void)setMenuBackgroundColor:(UIColor *)color {
+    self.view.backgroundColor = color;
+
 }
 
 - (void)addMenuItemWithTitle:(NSString *)title {
@@ -197,7 +214,7 @@ typedef NS_ENUM (NSUInteger, MenuDirection)
 }
 
 - (void)menuButtonTapped:(UIButton *)button {
-	[self closeMenu];
+	!self.closeMenuOnSelection ?: [self closeMenu];
 
 	if (self.delegate && [self.delegate respondsToSelector:@selector(slideInMenu:didSelectAtIndex:)]) {
 		[self.delegate slideInMenu:self didSelectAtIndex:button.tag - kMenuItemTagBase];
